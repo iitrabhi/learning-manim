@@ -52,11 +52,11 @@ class SinusArea(Scene):
             color=BLUE,
         ).shift(2.77 * UP + 5.7 * LEFT)
         t_number.add_updater(lambda mobject: mobject.set_value(t.get_value()))
+        
+        def clock(mobject, dt):
+            mobject.increment_value(dt)
 
-    # def clock(mobject, dt):
-
-    #     mobject.increment_value(dt)
-    #     t.add_updater(clock)
+        t.add_updater(clock)
         seno = ax.plot(lambda x: 2 * np.sin(1 * t.get_value() - 0.7 * x), color=RED)
         seno.add_updater(
             lambda mobject: mobject.become(
